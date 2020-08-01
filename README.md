@@ -1,2 +1,2 @@
 # codility
- D:\Project\C++\online
+ codility test
