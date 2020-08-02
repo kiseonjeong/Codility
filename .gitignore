@@ -11,3 +11,7 @@
 *.opensdf
 *.sdf
 *.suo
+/.vs/
+/Debug/
+/Release/
+/x64/
