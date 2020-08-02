@@ -30,7 +30,7 @@ each element of array A is an integer within the range [1..1,000,000,000];
 all but one of the values in A occur an even number of times.
 Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 """
-'''
+"""
 # very large computations
 def solution(A):
     # Find an unpaired key using count method
@@ -42,7 +42,7 @@ def solution(A):
             unpaired = key
             break
     return unpaired
-'''
+"""
 def solution(A):
     # Generate a tree and count a key
     temp = {}
