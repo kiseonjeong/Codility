@@ -53,35 +53,28 @@ each element of array A is an integer within the range [1..N + 1].
 Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 """
 def solution(N, A):
-    # Initialize the counters
-    counters = [0 for i in range(N)]
-
-    # Do operations
+    # Do counter operations
+    counters = [0] * N
+    max_val, temp_val = 0, 0
     for X in A:
-        counters = increase(counters, X, N)
-        print(counters)
-    return counters
-
-def increase(counters, X, N):
-    # Do increase operation
-    if X == N + 1:
-        return __max_counter(counters, N)
-    else:
         idx = X - 1
-        counters[idx] += 1
-        return counters
+        if X == N + 1:
+            max_val = temp_val
+        else:
+            if counters[idx] < max_val:
+                counters[idx] = max_val + 1
+            else:
+                counters[idx] += 1
+            if counters[idx] > temp_val:
+                temp_val = counters[idx]
     
-def __max_counter(counters, N):
-    # Do max_counter operation
-    max_val = max(counters)
-    counters = [max_val for i in range(N)]
+    # Set max values
+    for idx in range(N):
+        if counters[idx] < max_val:
+            counters[idx] = max_val
+    
     return counters
 
 N = 5
 A = [3, 4, 4, 6, 1, 4, 4]
-#B = [0 for _ in range(10)]
-B = list(map(3, int))
-print(B)
-B[0][1] = 3.14
-print(B)
-#print(solution(N, A))
+print(solution(N, A))
